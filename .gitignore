@@ -34,4 +34,4 @@ npm-debug.log
 /priv/static/
 
 # OS files
-/idea/
+/.idea
