@@ -10,7 +10,13 @@ defmodule Gryphon.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      releases: [
+        gryphon: [
+          include_executables_for: [:unix],
+          quiet: true
+        ]
+      ]
     ]
   end
 
