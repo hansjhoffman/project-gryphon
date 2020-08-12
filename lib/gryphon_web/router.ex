@@ -19,6 +19,8 @@ defmodule GryphonWeb.Router do
     get "/", BlogController, :index
     get "/about", AboutController, :index
     get "/sitemap.xml", SitemapController, :index
+    get "/tags", TagController, :index
+    get "/tags/:tag", TagController, :show, as: :tag
     get "/:slug", BlogController, :show, as: :post
   end
 

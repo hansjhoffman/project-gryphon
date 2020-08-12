@@ -1,0 +1,7 @@
+<section class="">
+    <h2 class=""><%= "Listing posts tagged with " <> "\"" <> @tag <> "\"" %></h2>
+<%= for post <- @posts do %>
+    <%= link post.title, to: Routes.post_path(@conn, :show, post.slug) %>
+    <p class=""><%= post.description %></p>
+<% end %>
+</section>

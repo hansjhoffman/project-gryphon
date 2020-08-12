@@ -5,6 +5,7 @@
         <%= link post.title, to: Routes.post_path(@conn, :show, post.slug), class: "" %>
         <p class=""><%= post.description %></p>
         <p class=""><%= post.date %></p>
+        <%= render "_tags.html", conn: @conn, tags: post.tags %>
     </article>
 <% end %>
 </section>

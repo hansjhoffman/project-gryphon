@@ -1,0 +1,8 @@
+<section class="">
+    <h2 class="">Listing all tags</h2>
+<%= for tag <- @tags do %>
+    <div>
+        <%= link tag, to: Routes.tag_path(@conn, :show, tag), class: "" %>
+    </div>
+<% end %>
+</section>
