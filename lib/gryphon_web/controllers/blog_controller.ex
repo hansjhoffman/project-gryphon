@@ -9,7 +9,7 @@ defmodule GryphonWeb.BlogController do
     render(conn, "index.html", posts: posts)
   end
 
-  def show(conn, %{"slug" => slug}) do
+  def show(conn, %{"id" => slug}) do
     perma_id =
       slug
       |> String.split("-")

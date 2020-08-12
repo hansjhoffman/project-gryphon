@@ -9,7 +9,7 @@ defmodule GryphonWeb.TagController do
     render(conn, "index.html", tags: tags)
   end
 
-  def show(conn, %{"tag" => tag}) do
+  def show(conn, %{"id" => tag}) do
     posts = Blog.get_posts_by_tag!(tag)
 
     render(conn, "show.html", posts: posts, tag: tag)

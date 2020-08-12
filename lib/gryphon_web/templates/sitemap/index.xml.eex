@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <%= for post <- @posts do %>
     <url>
-        <loc><%= "https://hansjhoffman.dev" <> Routes.post_path(@conn, :show, post.slug) %></loc>
+        <loc><%= "https://hansjhoffman.dev" <> Routes.blog_path(@conn, :show, post.slug) %></loc>
         <lastmod><%= post.date %></lastmod>
     </url>
 <% end %>

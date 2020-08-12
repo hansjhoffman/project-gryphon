@@ -16,12 +16,10 @@ defmodule GryphonWeb.Router do
   scope "/", GryphonWeb do
     pipe_through :browser
 
-    get "/", BlogController, :index
     get "/about", AboutController, :index
     get "/sitemap.xml", SitemapController, :index
-    get "/tags", TagController, :index
-    get "/tags/:tag", TagController, :show, as: :tag
-    get "/:slug", BlogController, :show, as: :post
+    resources "/tags", TagController, only: [:index, :show]
+    resources "/", BlogController, only: [:index, :show]
   end
 
   if Mix.env() in [:dev, :test] do
