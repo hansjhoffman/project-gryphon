@@ -18,8 +18,8 @@ defmodule GryphonWeb.Router do
 
     get "/", BlogController, :index
     get "/about", AboutController, :index
+    get "/sitemap.xml", SitemapController, :index
     get "/:slug", BlogController, :show, as: :post
-    # get "/sitemap.xml", SitemapController, :index
   end
 
   if Mix.env() in [:dev, :test] do
