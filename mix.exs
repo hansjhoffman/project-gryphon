@@ -26,7 +26,7 @@ defmodule Gryphon.MixProject do
   def application do
     [
       mod: {Gryphon.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :timex]
     ]
   end
 
@@ -50,7 +50,8 @@ defmodule Gryphon.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:earmark, "~> 1.4"},
       {:makeup_elixir, "~> 0.14.1"},
-      {:credo, "~> 1.4", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
+      {:timex, "~> 3.6"}
     ]
   end
 

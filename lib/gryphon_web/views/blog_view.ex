@@ -9,4 +9,11 @@ defmodule GryphonWeb.BlogView do
     |> Highlighter.highlight()
     |> raw
   end
+
+  def format_date(date) do
+    case Timex.format(date, "%B %d, %Y", :strftime) do
+      {:ok, formatted} -> formatted
+      {:error, _} -> date
+    end
+  end
 end

@@ -4,6 +4,7 @@
     <article class="">
         <%= link post.title, to: Routes.post_path(@conn, :show, post.slug), class: "" %>
         <p class=""><%= post.description %></p>
+        <p class=""><%= post.date %></p>
     </article>
 <% end %>
 </section>
