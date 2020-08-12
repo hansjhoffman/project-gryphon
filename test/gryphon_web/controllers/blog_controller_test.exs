@@ -1,8 +1,9 @@
-defmodule GryphonWeb.PageControllerTest do
+defmodule GryphonWeb.BlogControllerTest do
   use GryphonWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")
+
     assert html_response(conn, 200) =~ "Welcome to Phoenix!"
   end
 end

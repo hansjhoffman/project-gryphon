@@ -1,0 +1,9 @@
+<section class="">
+    <h2 class="">Blog</h2>
+<%= for post <- @posts do %>
+    <article class="">
+        <%= link post.title, to: Routes.post_path(@conn, :show, post), class: "" %>
+        <p class=""><%= post.description %></p>
+    </article>
+<% end %>
+</section>
