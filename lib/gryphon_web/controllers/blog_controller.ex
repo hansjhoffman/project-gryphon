@@ -9,10 +9,13 @@ defmodule GryphonWeb.BlogController do
     render(conn, "index.html", posts: posts)
   end
 
-  def show(conn, %{"titled_slug" => titled_slug}) do
-    [perma_id | _] = titled_slug |> String.split("-")
+  def show(conn, %{"slug" => slug}) do
+    perma_id =
+      slug
+      |> String.split("-")
+      |> hd
 
-    post = Blog.get_post(perma_id)
+    post = perma_id |> Blog.get_post()
 
     render(conn, "show.html", post: post)
   end

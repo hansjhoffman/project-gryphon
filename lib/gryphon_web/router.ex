@@ -17,7 +17,7 @@ defmodule GryphonWeb.Router do
     pipe_through :browser
 
     get "/blog", BlogController, :index
-    get "/blog/:titled_slug", BlogController, :show, as: :post
+    get "/blog/:slug", BlogController, :show, as: :post
     # get "/sitemap.xml", SitemapController, :index
   end
 

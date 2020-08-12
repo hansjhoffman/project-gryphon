@@ -5,28 +5,30 @@ defmodule Gryphon.Blog.Post do
 
   alias Gryphon.Blog.Highlighter
 
-  @enforce_keys [:id, :title, :body, :description, :tags, :date]
-  defstruct [:id, :title, :body, :description, :tags, :date]
+  @enforce_keys [:id, :slug, :title, :body, :description, :tags, :date]
+  defstruct [:id, :slug, :title, :body, :description, :tags, :date]
 
   def parse!(filename) do
+    slug = filename |> mk_slug()
+
     perma_id =
-      filename
-      # ["posts", "2939asdfs-first-post.md"]
-      |> Path.split()
-      # "2939asdfs-first-post.md"
-      |> tl
-      # "2939asdfs-first-post"
+      slug
       |> Path.rootname()
-      # ["2939asdfs", "first", "post"]
       |> String.split("-")
-      # "2939asdfs"
       |> hd
 
     # Get all attributes from the contents
     contents = parse_contents(File.read!(filename))
 
     # Finally build the post struct
-    struct!(__MODULE__, [id: perma_id] ++ contents)
+    struct!(__MODULE__, [id: perma_id, slug: slug] ++ contents)
+  end
+
+  defp mk_slug(filename) do
+    filename
+    |> Path.split()
+    |> tl
+    |> Path.rootname()
   end
 
   defp parse_contents(contents) do
