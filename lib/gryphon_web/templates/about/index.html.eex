@@ -1,1 +1,6 @@
-<h1>About Me</h1>
+<section class="hh-section">
+    <h1>About Me</h1>
+    <p>Favorite books</p>
+    <p>Favorite podcasts</p>
+    <p>Mini resume?</p>
+</section>

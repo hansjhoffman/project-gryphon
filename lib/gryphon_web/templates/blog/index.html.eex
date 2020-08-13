@@ -1,11 +1,13 @@
 <section class="hh-section">
     <div class="hh-hero">
-        <h1 class="">Welcome to Novela, the simplest way to start publishing with Gatsby.</h1>
+        <div class="hh-hero-title">
+            <h1 class="">You&apos;re either a simplifier or a multiplier. Which one are you?</h1>
+        </div>
         <div class="hh-hero-bio">
             <%= link to: Routes.about_path(@conn, :index), class: "" do %>
                 <img src="<%= Routes.static_path(@conn, "/images/brotzky.jpg") %>" alt="Hans' bio picture" class="hh-avatar" />
             <% end %>
-            <p class="">Written by You. This is where your author bio lives. Share your work, your joys and of course, your Twitter handle.</p>
+            <p class="">I&apos;m a Software Engineer, an aspiring entrepreneur, dog lover, avid reader and an 81kg Olympic Weightlifter.</p>
         </div>
     </div>
 </section>
