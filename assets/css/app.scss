@@ -44,6 +44,7 @@ body {
 
   /* Enable kerning and optional ligatures */
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 button,
@@ -65,7 +66,7 @@ button, a {
 
 :root {
   --theme-ui-colors-primary: #000;
-  --theme-ui-colors-background: #b5b4b4;
+  --theme-ui-colors-background: #fafafa;
   --theme-ui-colors-grey: #73737d;
   --theme-ui-colors-accent: #6166dc;
   --breakpoint-sm: 675px;
@@ -192,6 +193,7 @@ button, a {
     color: var(--theme-ui-colors-grey, #73737d);
     display: flex;
     align-items: center;
+    margin-bottom: 10rem;
 
     p {
       max-width: 43rem;
@@ -215,6 +217,12 @@ button, a {
   border-radius: 50%;
   margin: 10px 26px 10px 0;
 
+  & > img {
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+  }
+
   &::after {
     content: "";
     position: absolute;
@@ -222,9 +230,8 @@ button, a {
     top: -5px;
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    //border: 1px solid rgba(0,0,0,0.25);
-    border: red;
+    border-radius: inherit;
+    border: 1px solid rgba(0,0,0,0.25);
   }
 }
 

@@ -5,7 +5,9 @@
         </div>
         <div class="hh-hero-bio">
             <%= link to: Routes.about_path(@conn, :index), class: "" do %>
-                <img src="<%= Routes.static_path(@conn, "/images/brotzky.jpg") %>" alt="Hans' bio picture" class="hh-avatar" />
+                <div class="hh-avatar">
+                    <img src="<%= Routes.static_path(@conn, "/images/brotzky.jpg") %>" alt="Hans' bio picture" />
+                </div>
             <% end %>
             <p class="">I&apos;m a Software Engineer, an aspiring entrepreneur, dog lover, avid reader and an 81kg Olympic Weightlifter.</p>
         </div>
