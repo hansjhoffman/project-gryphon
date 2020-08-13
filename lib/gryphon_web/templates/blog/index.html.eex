@@ -23,12 +23,10 @@
                     <img class="" src="<%= Routes.static_path(@conn, "/images/hero-2.jpg") %>" alt="Cover image for blog post" />
                 </div>
                 <div class="hh-blog--card__bottom">
-                    <h2 class=""><%= post.title %></h2>
-                    <p class=""><%= post.description %></p>
-                    <div class="">
-                        <p><%= post.date %></p>
-                        <%= render "_tags.html", conn: @conn, tags: post.tags %>
-                    </div>
+                    <span><%= format_date post.date %></span>
+                    <h2><%= post.title %></h2>
+                    <p><%= post.description %></p>
+                    <%= render "_tags.html", conn: @conn, tags: post.tags %>
                 </div>
             </article>
         <% end %>

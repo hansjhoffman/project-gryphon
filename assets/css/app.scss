@@ -310,6 +310,15 @@ a {
         max-width: 515px;
         margin-bottom: 0.625em;
       }
+
+      span {
+        display: block;
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 0.625em;
+        color: var(--theme-ui-colors-grey, #73737d);
+        opacity: 0.33;
+      }
     }
   }
 }
@@ -318,6 +327,17 @@ a {
   .hh-blog {
     &-card {
     }
+  }
+}
+
+.hh-tags {
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 600;
+
+  a {
+    color: var(--theme-ui-colors-accent, #6166dc);
+    margin-right: 1.5em;
   }
 }
 

@@ -1,3 +1,5 @@
-<%= for tag <- @tags do %>
-    <%= link "##{tag}", to: Routes.tag_path(@conn, :show, tag), class: "" %>
-<% end %>
+<div class="hh-tags">
+    <%= for tag <- @tags do %>
+        <%= link "##{tag}", to: Routes.tag_path(@conn, :show, tag), class: "" %>
+    <% end %>
+</div>
