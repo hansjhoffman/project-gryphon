@@ -264,12 +264,17 @@ a {
     grid-column-gap: 96px;
     align-items: center;
     margin-bottom: 5em;
-    transition: transform 0.33s var(--ease-out-quart);
 
     &:hover,
     &:focus {
-      h2 {
-        color: var(--theme-ui-colors-accent, #6166dc);
+      :first-child {
+        box-shadow: 0 50px 80px -20px rgba(0, 0, 0, 0.27), 0 30px 50px -30px rgba(0, 0, 0, 0.3);
+      }
+
+      :last-child {
+        h2 {
+          color: var(--theme-ui-colors-accent, #6166dc);
+        }
       }
     }
 
@@ -278,11 +283,7 @@ a {
       overflow: hidden;
       height: 220px;
       box-shadow: rgba(0, 0, 0, 0.3) 0 30px 60px -10px, rgba(0, 0, 0, 0.33) 0 18px 36px -18px;
-
-      &:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 50px 80px -20px rgba(0, 0, 0, 0.27), 0 30px 50px -30px rgba(0, 0, 0, 0.3);
-      }
+      transition: box-shadow 0.33s ease;
 
       img {
         height: 100%;
@@ -306,7 +307,7 @@ a {
       p {
         font-size: 1.6rem;
         color: var(--theme-ui-colors-grey, #73737d);
-        @include text-clipping(3);
+        @include text-clipping(2);
         max-width: 515px;
         margin-bottom: 0.625em;
       }
@@ -331,12 +332,13 @@ a {
 }
 
 .hh-tags {
-  font-size: 1.2rem;
-  font-style: italic;
-  font-weight: 600;
+  display: flex;
 
-  a {
-    color: var(--theme-ui-colors-accent, #6166dc);
+  p {
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--theme-ui-colors-grey, #73737d);
     margin-right: 1.5em;
   }
 }

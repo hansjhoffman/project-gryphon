@@ -29,6 +29,7 @@ defmodule Gryphon.Blog.Post do
     |> Path.split()
     |> tl
     |> Path.rootname()
+    |> String.downcase()
   end
 
   defp parse_contents(contents) do

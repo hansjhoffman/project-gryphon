@@ -9,27 +9,27 @@
                     <img src="<%= Routes.static_path(@conn, "/images/brotzky.jpg") %>" alt="Hans' bio picture" />
                 </div>
             <% end %>
-            <p class="">I&apos;m a Software Engineer, an aspiring entrepreneur, dog lover, avid reader and an 81kg Olympic Weightlifter.</p>
+            <p class="">I&apos;m a Software Engineer, budding entrepreneur, dog lover, avid reader and an 81kg Olympic Weightlifter.</p>
         </div>
     </div>
 </section>
 
 <section class="hh-section">
     <div class="hh-blog">
-    <%= for post <- @posts do %>
-        <%= link to: Routes.blog_path(@conn, :show, post.slug), class: "" do %>
-            <article class="hh-blog--card">
-                <div class="hh-blog--card__top">
-                    <img class="" src="<%= Routes.static_path(@conn, "/images/hero-2.jpg") %>" alt="Cover image for blog post" />
-                </div>
-                <div class="hh-blog--card__bottom">
-                    <span><%= format_date post.date %></span>
-                    <h2><%= post.title %></h2>
-                    <p><%= post.description %></p>
-                    <%= render "_tags.html", conn: @conn, tags: post.tags %>
-                </div>
-            </article>
+        <%= for post <- @posts do %>
+            <%= link to: Routes.blog_path(@conn, :show, post.slug), class: "" do %>
+                <article class="hh-blog--card">
+                    <div class="hh-blog--card__top">
+                        <img class="" src="<%= Routes.static_path(@conn, "/images/hero-2.jpg") %>" alt="Cover image for blog post" />
+                    </div>
+                    <div class="hh-blog--card__bottom">
+                        <span><%= format_date post.date %></span>
+                        <h2><%= post.title %></h2>
+                        <p><%= post.description %></p>
+                        <%= render "_tags.html", conn: @conn, tags: post.tags %>
+                    </div>
+                </article>
+            <%= end %>
         <% end %>
-    <% end %>
     </div>
 </section>
