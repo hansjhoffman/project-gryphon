@@ -28,10 +28,10 @@
       <section class="hh-section">
         <nav class="hh-nav" role="navigation">
           <%= link to: Routes.blog_path(@conn, :index), class: "" do %>
-            <img src="<%= Routes.static_path(@conn, "/images/logo.svg") %>" alt="Hans Hoffman Logo" class="hh-nav-brand" />
+            <img src="<%= Routes.static_path(@conn, "/images/logo.svg") %>" alt="Hans Hoffman Logo" class="hh-nav--brand" />
             <span class="hh-back">Navigate back to the homepage</span>
           <% end %>
-          <button class="hh-nav-mode" aria-label="Activate dark mode" title="Activate dark mode">
+          <button class="hh-nav--mode" aria-label="Activate dark mode" title="Activate dark mode">
             <span class=""></span>
           </button>
         </nav>

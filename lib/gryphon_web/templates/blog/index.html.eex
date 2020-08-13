@@ -1,9 +1,9 @@
 <section class="hh-section">
     <div class="hh-hero">
-        <div class="hh-hero-title">
+        <div class="hh-hero--title">
             <h1 class="">You&apos;re either a simplifier or a multiplier. Which one are you?</h1>
         </div>
-        <div class="hh-hero-bio">
+        <div class="hh-hero--bio">
             <%= link to: Routes.about_path(@conn, :index), class: "" do %>
                 <div class="hh-avatar">
                     <img src="<%= Routes.static_path(@conn, "/images/brotzky.jpg") %>" alt="Hans' bio picture" />
@@ -18,12 +18,19 @@
     <div class="hh-blog">
     <%= for post <- @posts do %>
         <%= link to: Routes.blog_path(@conn, :show, post.slug), class: "" do %>
-        <article class="hh-blog-row">
-            <p class=""><%= post.title %></p>
-            <p class=""><%= post.description %></p>
-            <p class=""><%= post.date %></p>
-            <%= render "_tags.html", conn: @conn, tags: post.tags %>
-        </article>
+            <article class="hh-blog--card">
+                <div class="hh-blog--card__top">
+                    <img class="" src="<%= Routes.static_path(@conn, "/images/hero-2.jpg") %>" alt="Cover image for blog post" />
+                </div>
+                <div class="hh-blog--card__bottom">
+                    <h2 class=""><%= post.title %></h2>
+                    <p class=""><%= post.description %></p>
+                    <div class="">
+                        <p><%= post.date %></p>
+                        <%= render "_tags.html", conn: @conn, tags: post.tags %>
+                    </div>
+                </div>
+            </article>
         <% end %>
     <% end %>
     </div>

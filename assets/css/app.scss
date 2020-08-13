@@ -34,7 +34,8 @@ html {
 body {
   box-sizing: border-box;
   background-color: var(--theme-ui-colors-background);
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica,
+    Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif;
   font-weight: 400;
   line-height: 1.65;
   height: 100%;
@@ -55,9 +56,24 @@ textarea {
   font-family: inherit;
 }
 
-button, a {
+button,
+a {
   cursor: pointer;
   text-decoration: none;
+}
+
+/***************
+ *    Mixins
+ ***************/
+
+@mixin text-clipping($lines) {
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow-wrap: normal;
+  overflow: hidden;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
 }
 
 /***************
@@ -99,12 +115,12 @@ button, a {
   display: flex;
   justify-content: space-between;
 
-  &-brand {
+  &--brand {
     width: 25px;
     height: 25px;
   }
 
-  &-mode {
+  &--mode {
     position: relative;
     display: flex;
     opacity: 0.5;
@@ -145,7 +161,7 @@ button, a {
         border: 2px solid var(--theme-ui-colors-primary, #000);
         border-radius: inherit;
         opacity: 1;
-        transform: translate(0,0);
+        transform: translate(0, 0);
         transition: transform 0.45s ease;
       }
 
@@ -159,13 +175,13 @@ button, a {
         top: 50%;
         left: 50%;
         box-shadow: 0 -23px 0 var(--theme-ui-colors-primary, #000),
-                    0 23px 0 var(--theme-ui-colors-primary, #000),
-                    23px 0 0 var(--theme-ui-colors-primary, #000),
-                    -23px 0 0 var(--theme-ui-colors-primary, #000),
-                    15px 15px 0 var(--theme-ui-colors-primary, #000),
-                    -15px 15px 0 var(--theme-ui-colors-primary, #000),
-                    15px -15px 0 var(--theme-ui-colors-primary, #000),
-                    -15px -15px 0 var(--theme-ui-colors-primary, #000);
+          0 23px 0 var(--theme-ui-colors-primary, #000),
+          23px 0 0 var(--theme-ui-colors-primary, #000),
+          -23px 0 0 var(--theme-ui-colors-primary, #000),
+          15px 15px 0 var(--theme-ui-colors-primary, #000),
+          -15px 15px 0 var(--theme-ui-colors-primary, #000),
+          15px -15px 0 var(--theme-ui-colors-primary, #000),
+          -15px -15px 0 var(--theme-ui-colors-primary, #000);
         transform: scale(0);
         transition: all 0.35s ease;
       }
@@ -174,7 +190,7 @@ button, a {
 }
 
 .hh-hero {
-  &-title {
+  &--title {
     max-width: 65.2rem;
     margin: 10rem 0;
 
@@ -187,7 +203,7 @@ button, a {
     }
   }
 
-  &-bio {
+  &--bio {
     font-size: 1.4rem;
     line-height: 1.45;
     color: var(--theme-ui-colors-grey, #73737d);
@@ -203,7 +219,7 @@ button, a {
 
 @media only screen and (max-width: 675px) {
   .hh-hero {
-    &-bio {
+    &--bio {
       display: none;
     }
   }
@@ -231,20 +247,77 @@ button, a {
     width: 50px;
     height: 50px;
     border-radius: inherit;
-    border: 1px solid rgba(0,0,0,0.25);
+    border: 1px solid rgba(0, 0, 0, 0.25);
   }
 }
 
 .hh-blog {
   display: grid;
+  position: relative;
+  grid-template-rows: 1fr;
 
-  &-row {
+  &--card {
+    display: grid;
+    position: relative;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 488px;
-    align-items: center;
-    position: relative;
-    margin-bottom: 5em;
     grid-column-gap: 96px;
+    align-items: center;
+    margin-bottom: 5em;
+    transition: transform 0.33s var(--ease-out-quart);
+
+    &:hover,
+    &:focus {
+      h2 {
+        color: var(--theme-ui-colors-accent, #6166dc);
+      }
+    }
+
+    &__top {
+      position: relative;
+      overflow: hidden;
+      height: 220px;
+      box-shadow: rgba(0, 0, 0, 0.3) 0 30px 60px -10px, rgba(0, 0, 0, 0.33) 0 18px 36px -18px;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 50px 80px -20px rgba(0, 0, 0, 0.27), 0 30px 50px -30px rgba(0, 0, 0, 0.3);
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__bottom {
+      h2 {
+        font-size: 2.1rem;
+        line-height: 1.333;
+        font-weight: bold;
+        font-family: "Merriweather", Georgia, serif;
+        color: var(--theme-ui-colors-primary, #000);
+        word-break: keep-all;
+        @include text-clipping(2);
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.6rem;
+        color: var(--theme-ui-colors-grey, #73737d);
+        @include text-clipping(3);
+        max-width: 515px;
+        margin-bottom: 0.625em;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .hh-blog {
+    &-card {
+    }
   }
 }
 
@@ -252,4 +325,3 @@ button, a {
   background-color: var(--link-color);
   color: #fff;
 }
-

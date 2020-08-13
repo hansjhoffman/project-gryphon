@@ -1,11 +1,11 @@
 ==title==
-First Post
+Etiam facilisis malesuada mi non dictum
 
 ==date==
 2020-08-11
 
 ==description==
-Today we announce 1...
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget sapien libero. Sed tempus laoreet varius.
 
 ==tags==
 elixir, react
