@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Gryphon · Phoenix Framework</title>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#502e71" />
+    <meta property="og:url" content="https://hansjhoffman.dev" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="<%= Routes.static_path(@conn, "/images/logo.png") %>" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="640" />
+    <meta name="twitter:site" content="https://hansjhoffman.dev" />
+    <meta name="twitter:card" content="" />
+    <meta name="twitter:image" content="<%= Routes.static_path(@conn, "/images/logo.png") %>" />
+
+    <title>Blog · Hans Hoffman</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:700,700i&display=swap" />
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
 
   <body>
     <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
+      <section class="hh-section">
+        <nav class="hh-nav" role="navigation">
+          <%= link to: Routes.blog_path(@conn, :index), class: "" do %>
+            <img src="<%= Routes.static_path(@conn, "/images/logo.svg") %>" alt="Hans Hoffman Logo" class="hh-nav-brand" />
+            <span class="hh-back">Navigate back to the homepage</span>
+          <% end %>
+          <%= link to: Routes.blog_path(@conn, :index), class: "" do %>
+            <img src="<%= Routes.static_path(@conn, "/images/logo.svg") %>" alt="Hans Hoffman Logo" class="hh-nav-brand" />
+          <% end %>
         </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
       </section>
     </header>
-    <main role="main" class="container">
+    <main role="main" class="">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= @inner_content %>
     </main>
+    <footer class="hh-footer">
+    </footer>
   </body>
 </html>
