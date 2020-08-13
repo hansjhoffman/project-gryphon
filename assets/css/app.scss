@@ -13,22 +13,6 @@
 
 html {
   font-size: 62.5%;
-
-  // @include respond-to("sm") {
-  //   font-size: 56.25%;
-  // }
-
-  // @include respond-to("md") {
-  //   font-size: 50%;
-  // }
-
-  // @include respond-to("lg") {
-  //   font-size: 45%;
-  // }
-
-  // @include respond-to("xl") {
-  //   font-size: 75%;
-  // }
 }
 
 body {
@@ -76,6 +60,31 @@ a {
   display: -webkit-box;
 }
 
+/* $breakpoint choices for MEDIA QUERY SIZES
+  0 - 540px:        'sm'
+  541 - 735px:      'md'
+  736 - 1070px:     'lg'
+  1071 - 1280px:    'xl'
+  ==> 1em = 16px
+*/
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media only screen and (max-width: 33.75em) { @content };
+  }
+
+  @if $breakpoint == md {
+    @media only screen and (max-width: 45.9375em) { @content };
+  }
+
+  @if $breakpoint == lg {
+    @media only screen and (max-width: 66.875em) { @content };
+  }
+
+  @if $breakpoint == xl {
+    @media only screen and (min-width: 80em) { @content };
+  }
+}
+
 /***************
  *    Theme
  ***************/
@@ -97,6 +106,10 @@ a {
   max-width: 1220px;
   margin: 0 auto;
   padding: 0 4rem;
+
+  @include respond-to(lg) {
+    max-width: 850px;
+  }
 }
 
 .hh-back {
@@ -114,6 +127,10 @@ a {
   padding-top: 10em;
   display: flex;
   justify-content: space-between;
+
+  @include respond-to(lg) {
+    padding-top: 5em;
+  }
 
   &--brand {
     width: 25px;
@@ -200,6 +217,14 @@ a {
       font-size: 5.2rem;
       line-height: 1.15;
       color: var(--theme-ui-colors-primary, #000);
+
+      @include respond-to(lg) {
+        font-size: 3.8rem;
+      }
+
+      @include respond-to(sm) {
+        font-size: 3.2rem;
+      }
     }
   }
 
@@ -214,12 +239,12 @@ a {
     p {
       max-width: 43rem;
     }
-  }
-}
 
-@media only screen and (max-width: 675px) {
-  .hh-hero {
-    &--bio {
+    @include respond-to(lg) {
+      margin-bottom: 5rem;
+    }
+
+    @include respond-to(sm) {
       display: none;
     }
   }
@@ -261,9 +286,15 @@ a {
     position: relative;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 488px;
-    grid-column-gap: 96px;
+    grid-column-gap: 9.6rem;
     align-items: center;
     margin-bottom: 5em;
+
+    @include respond-to(lg) {
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
+      grid-column-gap: 2.4rem;
+    }
 
     &:hover,
     &:focus {
@@ -302,6 +333,14 @@ a {
         word-break: keep-all;
         @include text-clipping(2);
         margin-bottom: 1rem;
+
+        @include respond-to(lg) {
+          font-size: 2.4rem;
+        }
+
+        @include respond-to(sm) {
+          font-size: 2.2rem;
+        }
       }
 
       p {
@@ -320,13 +359,10 @@ a {
         color: var(--theme-ui-colors-grey, #73737d);
         opacity: 0.33;
       }
-    }
-  }
-}
 
-@media only screen and (max-width: 675px) {
-  .hh-blog {
-    &-card {
+      @include respond-to(lg) {
+        padding-top: 30px;
+      }
     }
   }
 }
@@ -344,6 +380,6 @@ a {
 }
 
 ::selection {
-  background-color: var(--link-color);
+  background-color: var(--theme-ui-colors-accent, #6166dc);
   color: #fff;
 }
