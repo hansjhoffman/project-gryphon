@@ -94,7 +94,7 @@ a {
 }
 
 /***************
- *    Theme
+ *  Variables
  ***************/
 
 :root {
@@ -169,7 +169,7 @@ a {
       opacity: 1;
     }
 
-    span {
+    &__1 {
       display: block;
       position: relative;
       width: 24px;
@@ -215,6 +215,21 @@ a {
         transform: scale(0);
         transition: all 0.35s ease;
       }
+    }
+
+    &__2 {
+      position: absolute;
+      right: -1px;
+      top: -8px;
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      border: 0;
+      background: var(--theme-ui-colors-background, #fafafa);
+      transform: translate(0, 0);
+      opacity: 1;
+      transition: background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad),
+        transform 0.45s ease;
     }
   }
 }

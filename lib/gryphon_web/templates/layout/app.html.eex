@@ -32,7 +32,8 @@
             <span class="hh-back">Navigate back to the homepage</span>
           <% end %>
           <button class="hh-nav--mode" aria-label="Activate dark mode" title="Activate dark mode">
-            <span class=""></span>
+            <span class="hh-nav--mode__1"></span>
+            <span class="hh-nav--mode__2"></span>
           </button>
         </nav>
       </section>
