@@ -69,19 +69,27 @@ a {
 */
 @mixin respond-to($breakpoint) {
   @if $breakpoint == sm {
-    @media only screen and (max-width: 33.75em) { @content };
+    @media only screen and (max-width: 33.75em) {
+      @content;
+    }
   }
 
   @if $breakpoint == md {
-    @media only screen and (max-width: 45.9375em) { @content };
+    @media only screen and (max-width: 45.9375em) {
+      @content;
+    }
   }
 
   @if $breakpoint == lg {
-    @media only screen and (max-width: 66.875em) { @content };
+    @media only screen and (max-width: 66.875em) {
+      @content;
+    }
   }
 
   @if $breakpoint == xl {
-    @media only screen and (min-width: 80em) { @content };
+    @media only screen and (min-width: 80em) {
+      @content;
+    }
   }
 }
 
@@ -94,7 +102,12 @@ a {
   --theme-ui-colors-background: #fafafa;
   --theme-ui-colors-grey: #73737d;
   --theme-ui-colors-accent: #6166dc;
-  --breakpoint-sm: 675px;
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 /***************
@@ -314,7 +327,7 @@ a {
       overflow: hidden;
       height: 220px;
       box-shadow: rgba(0, 0, 0, 0.3) 0 30px 60px -10px, rgba(0, 0, 0, 0.33) 0 18px 36px -18px;
-      transition: box-shadow 0.33s ease;
+      transition: box-shadow 0.33s var(--ease-out-quart);
 
       img {
         height: 100%;
@@ -328,7 +341,7 @@ a {
         font-size: 2.1rem;
         line-height: 1.333;
         font-weight: bold;
-        font-family: "Merriweather", Georgia, serif;
+        font-family: Merriweather, Georgia, serif;
         color: var(--theme-ui-colors-primary, #000);
         word-break: keep-all;
         @include text-clipping(2);
