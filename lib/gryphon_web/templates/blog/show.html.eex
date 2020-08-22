@@ -1,6 +1,27 @@
-<section class="">
-    <h1 class=""><%= @post.title %></h1>
-    <p class=""><%= format_date @post.date %></p>
-    <%= render "_tags.html", conn: @conn, tags: @post.tags %>
-    <%= markdown @post.body %>
-</section>
+<div class="">
+    <div class="hh-headline">
+        <h1><%= @post.title %></h1>
+        <div class="hh-headline--meta">
+            <%= link to: Routes.about_path(@conn, :index), class: "" do %>
+                <div class="hh-avatar">
+                    <img src="<%= Routes.static_path(@conn, "/images/brotzky.jpg") %>" alt="Hans' bio picture" />
+                </div>
+            <% end %>
+            <span class=""><%= format_date @post.date %></span>
+            <%= render "_tags.html", conn: @conn, tags: @post.tags %>
+            <!-- each tag needs to be a link -->
+        </div>
+    </div>
+    <div class="hh-image--hero">
+        <!-- <img src="<%= Routes.static_path(@conn, "/images/hero-2-md.jpg") %>" alt="Post pic" /> -->
+        <img src="<%= Routes.static_path(@conn, "/images/hero-4.webp") %>" alt="Post pic" />
+    </div>
+</div>
+
+<aside class="hh-progress"></aside>
+
+<article class="">
+    <div class="hh-markdown">
+        <%= as_html @post.content %>
+    </div>
+</article>

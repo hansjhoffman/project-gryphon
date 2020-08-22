@@ -5,8 +5,8 @@ defmodule Gryphon.Blog.Post do
 
   alias Gryphon.Blog.Highlighter
 
-  @enforce_keys [:id, :slug, :title, :body, :description, :tags, :date]
-  defstruct [:id, :slug, :title, :body, :description, :tags, :date]
+  @enforce_keys [:id, :slug, :title, :content, :description, :tags, :date]
+  defstruct [:id, :slug, :title, :content, :description, :tags, :date]
 
   def parse!(filename) do
     slug = filename |> mk_slug()
@@ -70,7 +70,7 @@ defmodule Gryphon.Blog.Post do
     |> Enum.sort()
   end
 
-  defp parse_attr(:body, value) do
+  defp parse_attr(:content, value) do
     value
     |> String.trim()
   end

@@ -10,5 +10,5 @@ Fusce porta mauris est, in volutpat diam ornare eu. Sed congue metus non sem ele
 ==tags==
 haskell
 
-==body==
+==content==
 # Second post!!! 

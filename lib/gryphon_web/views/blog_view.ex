@@ -3,7 +3,7 @@ defmodule GryphonWeb.BlogView do
 
   alias Gryphon.Blog.Highlighter
 
-  def markdown(content) do
+  def as_html(content) do
     content
     |> Earmark.as_html!()
     |> Highlighter.highlight()
